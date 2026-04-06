@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Pandas Final Study Sheet</title>
+<style>
+body{
+    font-family: "Segoe UI", Arial;
+    background:#0f172a;
+    color:#e5e7eb;
+    margin:40px;
+}
+h1{
+    text-align:center;
+    color:#fbbf24;
+}
+table{
+    border-collapse:collapse;
+    width:100%;
+    background:#111827;
+}
+th, td{
+    border:1px solid #374151;
+    padding:12px;
+}
+th{
+    background:#1f2937;
+}
+tr:nth-child(even){
+    background:#0b1220;
+}
+code{
+    background:#020617;
+    padding:6px;
+    color:#93c5fd;
+    display:block;
+}
+.topic{
+    color:#fbbf24;
+    font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Pandas + EDA Final Study Sheet</h1>
+
+<table>
+<tr>
+<th>Topic</th>
+<th>Function</th>
+<th>Syntax</th>
+<th>Parameters</th>
+<th>Example</th>
+<th>Short Explain</th>
+</tr>
+
+<tr>
+<td class="topic">Data</td>
+<td>pd.Series()</td>
+<td><code>pd.Series(data,index,name)</code></td>
+<td><code>{"data":["list","dict"],"index":["list"],"name":["str"]}</code></td>
+<td><code>pd.Series([10,20])</code></td>
+<td>Create 1D labeled data</td>
+</tr>
+
+<tr>
+<td class="topic">Data</td>
+<td>pd.DataFrame()</td>
+<td><code>pd.DataFrame(data)</code></td>
+<td><code>{"data":["dict","list"],"columns":["list"]}</code></td>
+<td><code>pd.DataFrame({"a":[1,2]})</code></td>
+<td>Create table structure</td>
+</tr>
+
+<tr>
+<td class="topic">File</td>
+<td>read_csv()</td>
+<td><code>pd.read_csv(path)</code></td>
+<td><code>{"path":["file"],"sep":[",",";"]}</code></td>
+<td><code>pd.read_csv("file.csv")</code></td>
+<td>Load CSV data</td>
+</tr>
+
+<tr>
+<td class="topic">Preview</td>
+<td>head()</td>
+<td><code>df.head(n)</code></td>
+<td><code>{"n":["int"]}</code></td>
+<td><code>df.head()</code></td>
+<td>Top rows</td>
+</tr>
+
+<tr>
+<td class="topic">Preview</td>
+<td>tail()</td>
+<td><code>df.tail(n)</code></td>
+<td><code>{"n":["int"]}</code></td>
+<td><code>df.tail()</code></td>
+<td>Last rows</td>
+</tr>
+
+<tr>
+<td class="topic">Info</td>
+<td>info()</td>
+<td><code>df.info()</code></td>
+<td><code>{}</code></td>
+<td><code>df.info()</code></td>
+<td>Dataset summary</td>
+</tr>
+
+<tr>
+<td class="topic">Size</td>
+<td>shape</td>
+<td><code>df.shape</code></td>
+<td><code>{}</code></td>
+<td><code>df.shape</code></td>
+<td>Rows & cols</td>
+</tr>
+
+<tr>
+<td class="topic">Size</td>
+<td>size</td>
+<td><code>df.size</code></td>
+<td><code>{}</code></td>
+<td><code>df.size</code></td>
+<td>Total elements</td>
+</tr>
+
+<tr>
+<td class="topic">Types</td>
+<td>dtypes</td>
+<td><code>df.dtypes</code></td>
+<td><code>{}</code></td>
+<td><code>df.dtypes</code></td>
+<td>Column data types</td>
+</tr>
+
+<tr>
+<td class="topic">Cols</td>
+<td>columns</td>
+<td><code>df.columns</code></td>
+<td><code>{}</code></td>
+<td><code>df.columns</code></td>
+<td>Column names</td>
+</tr>
+
+<tr>
+<td class="topic">Select</td>
+<td>iloc[]</td>
+<td><code>df.iloc[row,col]</code></td>
+<td><code>{"row":["int"],"col":["int"]}</code></td>
+<td><code>df.iloc[0,1]</code></td>
+<td>Index select</td>
+</tr>
+
+<tr>
+<td class="topic">Select</td>
+<td>loc[]</td>
+<td><code>df.loc[row,col]</code></td>
+<td><code>{"row":["label"],"col":["label"]}</code></td>
+<td><code>df.loc[0,"A"]</code></td>
+<td>Label select</td>
+</tr>
+
+<tr>
+<td class="topic">Index</td>
+<td>set_index()</td>
+<td><code>df.set_index(col,inplace)</code></td>
+<td><code>{"col":["column"],"inplace":[true,false]}</code></td>
+<td><code>df.set_index("Year",True)</code></td>
+<td>Set index</td>
+</tr>
+
+<tr>
+<td class="topic">Null</td>
+<td>isnull()</td>
+<td><code>df.isnull()</code></td>
+<td><code>{}</code></td>
+<td><code>df.isnull()</code></td>
+<td>Check nulls</td>
+</tr>
+
+<tr>
+<td class="topic">Null</td>
+<td>dropna()</td>
+<td><code>df.dropna()</code></td>
+<td><code>{"axis":[0,1],"subset":["list"]}</code></td>
+<td><code>df.dropna()</code></td>
+<td>Remove nulls</td>
+</tr>
+
+<tr>
+<td class="topic">Null</td>
+<td>fillna()</td>
+<td><code>df.fillna(val)</code></td>
+<td><code>{"value":["int","str"]}</code></td>
+<td><code>df.fillna(0)</code></td>
+<td>Fill nulls</td>
+</tr>
+
+<tr>
+<td class="topic">Math</td>
+<td>sum()</td>
+<td><code>df.sum()</code></td>
+<td><code>{}</code></td>
+<td><code>df["c"].sum()</code></td>
+<td>Total value</td>
+</tr>
+
+<tr>
+<td class="topic">Math</td>
+<td>mean()</td>
+<td><code>df.mean()</code></td>
+<td><code>{}</code></td>
+<td><code>df["c"].mean()</code></td>
+<td>Average value</td>
+</tr>
+
+<tr>
+<td class="topic">Delete</td>
+<td>drop()</td>
+<td><code>df.drop(labels)</code></td>
+<td><code>{"axis":[0,1]}</code></td>
+<td><code>df.drop("col",1)</code></td>
+<td>Remove data</td>
+</tr>
+
+<tr>
+<td class="topic">Dup</td>
+<td>drop_duplicates()</td>
+<td><code>df.drop_duplicates()</code></td>
+<td><code>{"keep":["first","last"]}</code></td>
+<td><code>df.drop_duplicates()</code></td>
+<td>Remove duplicates</td>
+</tr>
+
+<tr>
+<td class="topic">Sort</td>
+<td>sort_values()</td>
+<td><code>df.sort_values(by)</code></td>
+<td><code>{"by":["col"],"ascending":[true,false],"ignore_index":[true,false]}</code></td>
+<td><code>df.sort_values("marks")</code></td>
+<td>Sort rows</td>
+</tr>
+
+<tr>
+<td class="topic">Sort</td>
+<td>sort_index()</td>
+<td><code>df.sort_index()</code></td>
+<td><code>{"axis":[0,1],"ascending":[true,false]}</code></td>
+<td><code>df.sort_index()</code></td>
+<td>Sort by index</td>
+</tr>
+
+<tr>
+<td class="topic">Count</td>
+<td>value_counts()</td>
+<td><code>df[col].value_counts()</code></td>
+<td><code>{}</code></td>
+<td><code>df["c"].value_counts()</code></td>
+<td>Frequency count</td>
+</tr>
+
+<tr>
+<td class="topic">Unique</td>
+<td>unique()</td>
+<td><code>df[col].unique()</code></td>
+<td><code>{}</code></td>
+<td><code>df["c"].unique()</code></td>
+<td>Unique values</td>
+</tr>
+
+<tr>
+<td class="topic">Count</td>
+<td>nunique()</td>
+<td><code>df.nunique()</code></td>
+<td><code>{}</code></td>
+<td><code>df["c"].nunique()</code></td>
+<td>Count unique</td>
+</tr>
+
+<tr>
+<td class="topic">Sample</td>
+<td>sample()</td>
+<td><code>df.sample(n,frac)</code></td>
+<td><code>{"n":["int"],"frac":["float"]}</code></td>
+<td><code>df.sample(n=2)</code></td>
+<td>Random rows</td>
+</tr>
+
+<tr>
+<td class="topic">Stats</td>
+<td>corr()</td>
+<td><code>df.corr()</code></td>
+<td><code>{}</code></td>
+<td><code>df.corr()</code></td>
+<td>Relation check</td>
+</tr>
+
+<tr>
+<td class="topic">Stats</td>
+<td>quantile()</td>
+<td><code>df[col].quantile(q)</code></td>
+<td><code>{"q":[0.25,0.5,0.75]}</code></td>
+<td><code>df["m"].quantile(0.25)</code></td>
+<td>Percent value</td>
+</tr>
+
+<tr>
+<td class="topic">Convert</td>
+<td>astype()</td>
+<td><code>df[col].astype(type)</code></td>
+<td><code>{"type":["int","float","str"]}</code></td>
+<td><code>df["m"].astype(int)</code></td>
+<td>Change type</td>
+</tr>
+
+<tr>
+<td class="topic">Group</td>
+<td>groupby()</td>
+<td><code>df.groupby(col)</code></td>
+<td><code>{"col":["column"]}</code></td>
+<td><code>df.groupby("Dept")</code></td>
+<td>Group data</td>
+</tr>
+
+<tr>
+<td class="topic">Agg</td>
+<td>agg()</td>
+<td><code>df.agg(func)</code></td>
+<td><code>{"func":["sum","max","min"]}</code></td>
+<td><code>df.agg("sum")</code></td>
+<td>Apply functions</td>
+</tr>
+
+<tr>
+<td class="topic">Combine</td>
+<td>concat()</td>
+<td><code>pd.concat([df1,df2])</code></td>
+<td><code>{"axis":[0,1]}</code></td>
+<td><code>pd.concat([df1,df2])</code></td>
+<td>Join data</td>
+</tr>
+
+<tr>
+<td class="topic">Combine</td>
+<td>merge()</td>
+<td><code>pd.merge(df1,df2)</code></td>
+<td><code>{"on":["col"],"how":["inner","outer"]}</code></td>
+<td><code>pd.merge(df1,df2,on="id")</code></td>
+<td>Join tables</td>
+</tr>
+
+<tr>
+<td class="topic">Stats</td>
+<td>describe()</td>
+<td><code>df.describe()</code></td>
+<td><code>{"include":["object"]}</code></td>
+<td><code>df.describe()</code></td>
+<td>Summary stats</td>
+</tr>
+
+<tr>
+<td class="topic">Apply</td>
+<td>apply()</td>
+<td><code>df.apply(func)</code></td>
+<td><code>{"axis":[0,1]}</code></td>
+<td><code>df.apply(lambda x:x)</code></td>
+<td>Custom func</td>
+</tr>
+
+
+<tr>
+<td class="topic">Clean</td>
+<td>replace()</td>
+<td><code>df.replace(old,new)</code></td>
+<td><code>{"old":["value"],"new":["value"]}</code></td>
+<td><code>df.replace("?",0)</code></td>
+<td>Replace values</td>
+</tr>
+
+<tr>
+<td class="topic">Group</td>
+<td>nth()</td>
+<td><code>df.groupby(col).nth(n)</code></td>
+<td><code>{"n":["int"]}</code></td>
+<td><code>df.groupby("Dept").nth(1)</code></td>
+<td>Select nth row</td>
+</tr>
+
+<tr>
+<td class="topic">Group</td>
+<td>groups</td>
+<td><code>df.groupby(col).groups</code></td>
+<td><code>{}</code></td>
+<td><code>df.groupby("Dept").groups</code></td>
+<td>Group indices</td>
+</tr>
+
+<tr>
+<td class="topic">Table</td>
+<td>pd.crosstab()</td>
+<td><code>pd.crosstab(x,y)</code></td>
+<td><code>{"aggfunc":["mean","sum","count"]}</code></td>
+<td><code>pd.crosstab(df["a"],df["b"])</code></td>
+<td>Frequency table</td>
+</tr>
+
+<tr>
+<td class="topic">Plot</td>
+<td>boxplot()</td>
+<td><code>sns.boxplot(data)</code></td>
+<td><code>{"data":["column"]}</code></td>
+<td><code>sns.boxplot(df["maths"])</code></td>
+<td>Outlier plot</td>
+</tr>
+
+<tr>
+<td class="topic">Plot</td>
+<td>scatter_matrix()</td>
+<td><code>pd.plotting.scatter_matrix(df)</code></td>
+<td><code>{"df":["DataFrame"]}</code></td>
+<td><code>pd.plotting.scatter_matrix(df)</code></td>
+<td>Scatter plots</td>
+</tr>
+
+</table>
+
+<h2 style="color:#fbbf24; margin-top:40px;">Required Modules</h2>
+
+<table>
+<tr>
+<th>Module</th>
+<th>Import Code</th>
+<th>Purpose</th>
+</tr>
+
+<tr>
+<td>pandas</td>
+<td><code>import pandas as pd</code></td>
+<td>Data handling</td>
+</tr>
+
+<tr>
+<td>numpy</td>
+<td><code>import numpy as np</code></td>
+<td>Numerical ops</td>
+</tr>
+
+<tr>
+<td>matplotlib</td>
+<td><code>import matplotlib.pyplot as plt</code></td>
+<td>Basic plots</td>
+</tr>
+
+<tr>
+<td>seaborn</td>
+<td><code>import seaborn as sns</code></td>
+<td>Advanced plots</td>
+</tr>
+
+</table>
+
+</body>
+</html>
