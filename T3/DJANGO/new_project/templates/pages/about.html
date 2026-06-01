@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}About | Django Learning{% endblock %}
+
+{% block content %}
+<section class="split-section">
+  <div class="content-copy">
+    <p class="eyebrow">Project map</p>
+    <h1>Small enough to learn, organized enough to grow.</h1>
+    <p>
+      A Django project is the whole website. A Django app is one feature area
+      inside that website. This site has one app named <strong>pages</strong>.
+    </p>
+    <p>
+      The copied code is stored in <strong>old_projects</strong>, while this
+      clean version lives in <strong>new_project</strong>.
+    </p>
+  </div>
+  <div class="info-stack">
+    <div class="info-item">
+      <span>Project</span>
+      <strong>config</strong>
+      <p>Settings, main URLs, WSGI, and ASGI.</p>
+    </div>
+    <div class="info-item">
+      <span>App</span>
+      <strong>pages</strong>
+      <p>URLs, views, tests, and future models.</p>
+    </div>
+    <div class="info-item">
+      <span>Frontend</span>
+      <strong>templates + static</strong>
+      <p>HTML, CSS, and image assets.</p>
+    </div>
+  </div>
+</section>
+
+<section class="image-band">
+  <img class="wide-image" src="{% static 'images/farrari.png' %}" alt="Sample car image">
+</section>
+{% endblock %}

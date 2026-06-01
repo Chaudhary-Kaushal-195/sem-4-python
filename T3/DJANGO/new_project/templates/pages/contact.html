@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Contact | Django Learning{% endblock %}
+
+{% block content %}
+<section class="content-panel compact">
+  <p class="eyebrow">Route demo</p>
+  <h1>Contact page</h1>
+  <p>
+    This page shows a normal Django request flow. The browser asks for
+    <code>/contact/</code>, Django matches it in <code>pages.urls</code>, runs
+    <code>pages.views.contact</code>, and renders this template.
+  </p>
+  <div class="route-flow" aria-label="Django route flow">
+    <span>URL</span>
+    <span>urls.py</span>
+    <span>views.py</span>
+    <span>template</span>
+  </div>
+</section>
+{% endblock %}

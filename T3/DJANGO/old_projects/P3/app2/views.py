@@ -7,7 +7,5 @@ def content(request):
 def hello(request):
     return render(request, 'app2/hello.html')
 
-# def home1(request):
-#     return render(request, 'app2/home.html')
 def home(request):
     return render(request, 'app2/home.html')

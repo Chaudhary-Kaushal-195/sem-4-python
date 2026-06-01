@@ -6,5 +6,6 @@ def home(request):
 
 def about(request):
     return render(request, 'app1/about.html')
+
 def contact(request):
-    return render(request, 'contact.html')
+    return render(request, 'app1/contact.html')
