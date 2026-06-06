@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Home | Django Learning{% endblock %}
+
+{% block content %}
+<section class="hero-section">
+  <div class="hero-copy">
+    <p class="eyebrow">Beginner Django project</p>
+    <h1>Learn Django from a clean, modern starter.</h1>
+    <p class="lead">
+      This project keeps the code simple while making the website feel polished.
+      Start with routes, views, templates, and static files in one place.
+    </p>
+    <div class="hero-actions">
+      <a class="button primary" href="{% url 'about' %}">Explore Structure</a>
+      <a class="button secondary" href="{% url 'contact' %}">View Route Demo</a>
+    </div>
+    <div class="stats-row" aria-label="Project summary">
+      <div>
+        <strong>1</strong>
+        <span>Project</span>
+      </div>
+      <div>
+        <strong>1</strong>
+        <span>App</span>
+      </div>
+      <div>
+        <strong>3</strong>
+        <span>Pages</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-media">
+    <img
+      class="hero-image"
+      src="{% static 'images/Brabus Bodo.jpg' %}"
+      alt="Brabus Bodo car"
+    >
+  </div>
+</section>
+
+<section class="lesson-section">
+  <h2>How this project is connected</h2>
+  <div class="lesson-grid">
+    {% for lesson in lessons %}
+      <article class="lesson-card">
+        <span>{{ forloop.counter|stringformat:"02d" }}</span>
+        <p>{{ lesson }}</p>
+      </article>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

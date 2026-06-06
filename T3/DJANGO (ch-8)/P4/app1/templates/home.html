@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Home</h1>
+    <h1>{{students.0.name}}</h1>
+    <form action="{% url 'home' %}" method="get">
+      <input type="text" name="search" value="{{request.GET.search}}" />
+      <button type="submit" value="search">Search</button>
+    </form>
+    <table border="1">
+        <tr>
+            <th>Name</th>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Roll</th>
+            <th>Profile</th>
+            <th>Email</th>                                                                                                                                                                                                                                                 
+            <th>Marks</th>
+            <th>Birth Date</th>
+        </tr>
+        {% for st in students %}
+      <tr>
+        <td><a href="{% url 'details' student_id=st.id %}">{{st.name}}</a></td>
+        <td>{{st.id}}</td>
+        <td>{{st.name}}</td>
+        <td>{{st.roll}}</td>
+        <td>{{st.profile}}</td>
+        <td>{{st.email}}</td>
+        <td>{{st.marks}}</td>
+        <td>{{st.birthdate}}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% block title %}My Django Site{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'CSS/style.css' %}" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="navbar-brand">
+        <a href="{% url 'app2:home' %}">MySite</a>
+      </div>
+      <ul class="navbar-menu">
+        <li><a href="{% url 'app2:home' %}">Home</a></li>
+        <li><a href="{% url 'app1:about' %}">About</a></li>
+        <li><a href="{% url 'app2:content' %}">Content</a></li>
+        <li><a href="{% url 'app2:hello' %}">Hello</a></li>
+      </ul>
+    </nav>
+
+    {% block content %}{% endblock %}
+  </body>
+</html>
