@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="" />
+  </head>
+  <body>
+    <table border=1>
+      <tr>
+        <td>i.id</td>
+        <td>Name</td>
+        <td>Subject</td>
+        <td>Score</td>
+      </tr>
+      {% for i in data %}
+      <tr>
+        <td><a href="{% url 'info' i.id %}">{{i.id}}</a></td>
+        <td>{{i.name}}</td>
+        <td>{{i.sub}}</td>
+        <td>{{i.score}}</td>
+        <td><a href="{% url 'edit' i.id %}">update</td>
+        <td><a href="{% url 'dele' i.id %}">delete</td>
+      </tr>
+      {% endfor %}
+    </table>
+    <a href="{% url 'add' %}">Add</a>
+    
+  </body>
+</html>
