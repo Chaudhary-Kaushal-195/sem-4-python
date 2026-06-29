@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+    {% block title %}
+    <title>Edit</title>
+    {% endblock title %}
+
+    {% block body %}
+    <h1>Edit Players</h1>
+    <form method="post">
+        {% csrf_token %}
+        name:<input type="text" name='name' value="{{play.name}}"></input>
+        test_innings:<input type="number" name='innings' value="{{play.innings}}"></input>
+        runs:<input type="number" name='runs'value="{{play.runs}}" ></input>
+        <input type="submit" value="edit">
+    </form>
+
+    {% endblock body %}

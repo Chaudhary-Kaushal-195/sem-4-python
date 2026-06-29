@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+    {% block title %}
+    <title>Home</title>
+    {% endblock title %}
+
+    {% block body %}
+    <h1>this is home page</h1>
+    <h1>All Players</h1>
+    <form action="",method="get">
+        Player_name<input type='text' name='name'></input>
+        <button type='submit' value="Search">Search</button>
+    </form>
+    <a href="{% url "add" %}">Add New Player</a>
+    <table>
+    <thead>
+        <th>
+            <td>Name</td>
+            <td>Test Innings</td>
+            <td>Runs</td>
+            <td>Actions</td>
+        </th>
+    </thead>
+    <tbody>
+        {% for i in play %}
+        <tr>
+            <td>{{i.name}}</td>
+            <td>{{i.innings}}</td>
+            <td>{{i.runs}}</td>
+            <td><a href="{% url "edit" i.id%}">edit</a></td>
+            <td><a href="{% url "dele" i.id%}">detele</a></td>
+        </tr>
+        {% endfor %} 
+    </tbody>
+    </table>
+
+    {% endblock body %}
