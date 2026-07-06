@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EDIT</title>
+</head>
+<body>
+    <h1>EDIT STUDENT</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        name: <input type="text" name="name" id="" value="{{fac.name}}"><br>
+        subject: <input type="text" name="subject" id="" value="{{fac.subject}}"><br>
+        score: <input type="number" name="score" id="" value="{{fac.score}}"><br>
+        grade: <input type="text" name="grade" id="" value="{{fac.grade}}"><br>
+        pr_grade: <input type="text" name="pr_grade" id="" value="{{fac.pr_grade}}"><br>
+        <input type="submit" value="EDIT">
+    </form>
+</body>
+</html>

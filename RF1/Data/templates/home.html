@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+    <h1>Data</h1>
+    <a href="{% url "add" %}">Add student</a>
+    <table>
+        <thead>
+            <tr>
+                <td>Name</td>
+                <td>Subject</td>
+                <td>Score</td>
+                <td>Grade</td>
+                <td>Pr_Grade</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in fac %}
+            <tr>
+                <td>{{i.name}}</td>
+                <td>{{i.subject}}</td>
+                <td>{{i.score}}</td>
+                <td>{{i.grade}}</td>
+                <td>{{i.pr_grade}}</td>
+                <td><h3><a href="{% url "edit" i.name %}">Edit</a></h3></td>
+                <td><h3><a href="{% url "dele" i.name %}">delete</a></h3></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
