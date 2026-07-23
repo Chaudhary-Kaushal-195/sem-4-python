@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Player</title>
+  </head>
+  <body>
+    <h1>Edit Player</h1>
+    <form method="post">
+      {% csrf_token %} Player name:
+      <input type="text" name="name" value="{{player.name}}" />
+
+      Country :<input type="text" name="country" value="{{player.country}}" />
+
+      Batting Style:<input type="text" name="bas" value="{{player.bas}}" />
+
+      Bowling Style:<input type="text" name="bos" value="{{player.bos}}" />
+
+      Age :<input type="number" name="age" value="{{player.age}}" />
+
+      Runs Scored:<input type="number" name="rs" value="{{player.rs}}" />
+
+      Wickets Taken :<input type="number" name="wt" value="{{player.wt}}" />
+
+      <input type="submit" value="Edit Player" />
+    </form>
+  </body>
+</html>

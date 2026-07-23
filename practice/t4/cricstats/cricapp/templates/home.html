@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home page</title>
+  </head>
+  <body>
+    <h1>Welcome to homepage!!</h1>
+    <a href="{% url 'addnew' %}">Add new player</a>
+    <table border="1">
+      <tr>
+        <th>Player Name</th>
+        <th>Country</th>
+        <th>Batting Style</th>
+        <th>Bowling Style</th>
+        <th>Age</th>
+        <th>Runs Scored</th>
+        <th>Wickets Taken</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+
+      {% for i in data %}
+      <tr>
+        <td><a href="{% url 'details' i.id %}">{{i.name}}</a></td>
+        <td>{{i.country}}</td>
+        <td>{{i.bas}}</td>
+        <td>{{i.bos}}</td>
+        <td>{{i.age}}</td>
+        <td>{{i.rs}}</td>
+        <td>{{i.wt}}</td>
+        <td><a href="{% url 'edit' i.id%}">edit</a></td>
+        <td><a href="{% url 'dele' i.id%}">delete</a></td>
+      </tr>
+      {% endfor %}
+    </table>
+  </body>
+</html>

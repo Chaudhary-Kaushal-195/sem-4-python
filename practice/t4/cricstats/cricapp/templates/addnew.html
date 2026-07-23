@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>add new page</title>
+  </head>
+  <body>
+    <h1>add new player!!</h1>
+    <form method="post">
+      {% csrf_token %} 
+      
+      Player name: <input type="text" name="name" />
+
+      Country :<input type="text" name="country" />
+
+      Batting Style:<input type="text" name="bas" />
+
+      Bowling Style:<input type="text" name="bos" />
+
+      Age :<input type="number" name="age" />
+
+      Runs Scored:<input type="number" name="rs" />
+
+      Wickets Taken :<input type="number" name="wt" />
+
+      <input type="submit" value="Add Player" />
+    </form>
+  </body>
+</html>

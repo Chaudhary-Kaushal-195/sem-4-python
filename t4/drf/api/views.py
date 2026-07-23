@@ -11,6 +11,8 @@ def home(request):
         student = Student.objects.all()
         serializer=StudentSerializer(student,many=True)
         return Response(serializer.data)
+    
+    
     elif request.method=="POST":
         student = Student.objects.all()
         serializer=StudentSerializer(data=request.data)

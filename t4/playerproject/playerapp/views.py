@@ -9,8 +9,14 @@ def home(request):
     else:
         play=Player.objects.all()
     return render(request,'home.html',{'play':play})
+
+
+
 def welcome(request):
     return render(request,'welcome.html')
+
+
+
 def add(request):
     if request.method=="POST":
         name=request.POST['name']
@@ -19,6 +25,8 @@ def add(request):
         Player.objects.create(name=name,innings=innings,runs=runs)
         return redirect('home')
     return render(request,'add.html')
+
+
 def edit(request,id):
     play=get_object_or_404(Player,id=id)
     if request.method=="POST":
